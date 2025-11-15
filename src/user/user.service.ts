@@ -23,7 +23,7 @@ const err = error as {code?:number}
 
 
 
-            if(error.code === Duplicate_key){
+            if(err.code === Duplicate_key){
                 throw new ConflictException("Email is already taken")
             }
             

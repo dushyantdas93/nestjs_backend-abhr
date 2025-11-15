@@ -20,6 +20,6 @@ constructor(private readonly userService:UserService,private readonly jwtService
       const token = await this.jwtService.signAsync(payload)
 
       console.log(token)
-        return {message:'register user successfully'}
+        return {message:'register user successfully',token}
     }
 }
