@@ -8,13 +8,6 @@ import { UserService } from 'src/user/user.service';
 @Controller('auth')
 export class AuthController {
 
-
-    // authService:AuthService
-
-    // constructor(authService:AuthService){
-    //     this.authService = authService
-    // }
-
     constructor(private readonly authService:AuthService,private readonly userService:UserService){}
 
 
@@ -23,6 +16,7 @@ export class AuthController {
 
 
        const result = await this.authService.registerUser(registerUserDto)
+
         return result
     }
 
@@ -43,7 +37,7 @@ const userId = req.user.sub
 
 const result = await this.userService.findById(userId)
 
-
+console.log(result)
         return result
 
 

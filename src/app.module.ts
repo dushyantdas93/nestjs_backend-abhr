@@ -5,7 +5,12 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { CourseModule } from './course/course.module';
+import { CityModule } from './city/city.module';
+import { AreaModule } from './area/area.module';
+import { DeveloperModule } from './developer/developer.module';
+import { ProjectModule } from './project/project.module';
+import { ProjectModelModule } from './project-model/project-model.module';
+
 
 @Module({
   imports: [
@@ -13,7 +18,12 @@ import { CourseModule } from './course/course.module';
     MongooseModule.forRoot(process.env.MONGODB_URL as string), // <-- FIXED
     AuthModule,
     UserModule,
-    CourseModule,
+    CityModule,
+    AreaModule,
+    DeveloperModule,
+    ProjectModule,
+    ProjectModelModule,
+
     
   ],
   controllers: [AppController],

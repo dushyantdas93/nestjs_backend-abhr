@@ -15,6 +15,12 @@ export class AuthService {
     const saltRounds = 10;
     const hash = await bcrypt.hash(registerUserDto.password, saltRounds);
 
+    const userExist = await this.userService.findUser({ ...registerUserDto });
+
+    if (userExist) {
+      return {message: 'register allready exist'};
+    }
+
     const user = await this.userService.createUser({
       ...registerUserDto,
       password: hash,
@@ -24,7 +30,6 @@ export class AuthService {
 
     const token = await this.jwtService.signAsync(payload);
 
-    console.log(token);
     return { message: 'register user successfully', token };
   }
 
